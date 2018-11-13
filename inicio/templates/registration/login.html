@@ -1,0 +1,24 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+{% block tituloPagina %}
+	<title>Login | Mis Pandis</title>
+{% endblock tituloPagina %}
+{% block contenido %}
+	<div class="container py-5">
+		<h1>Login</h1>
+
+		<section class="">
+			<form method="POST">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button type="submit">Login</button>
+			</form>
+		</section> 
+	</div>
+{% endblock contenido %}
+{% block js %}
+	<script>
+		$(document).ready(function(){
+		});
+	</script>
+{% endblock js %}

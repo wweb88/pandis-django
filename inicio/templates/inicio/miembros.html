@@ -1,0 +1,66 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+{% block tituloPagina %}
+	<title>Miembros | Mis Pandis</title>
+{% endblock tituloPagina %}
+{% block contenido %}
+	<div class="container py-5">
+		<h1>Miembros</h1>
+
+		<section class="mt-3 mb-4 conte_conjunto">
+			<div class="controls text-center mb-3">
+				<button class="btn btn-default control" data-filter="all">Todos</button>
+				<button class="btn btn-default control" data-filter=".contendiente">Contendiente</button>
+				<button class="btn btn-default control" data-filter=".retador">Retador</button>
+				<button class="btn btn-default control" data-filter=".campeon">Campeón</button>
+				<button class="btn btn-default control" data-filter=".leyenda">Leyenda</button>
+			</div>
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">Imágen</th>
+							<th scope="col">Luchador</th>
+							<th scope="col">Peleas</th>
+							<th scope="col">Estado</th>
+							<th scope="col">Biografía</th>
+							<th scope="col">Pertenece</th>
+						</tr>
+					</thead>
+					<tbody class="">
+						{% for item in luchadores %}
+						<tr class="mix {% if item.estado == 'contendiente' %}contendiente{% endif %}{% if item.estado == 'retador' %}retador{% endif %}{% if item.estado == 'campeon' %}campeon{% endif %}{% if item.estado == 'leyenda' %}leyenda{% endif %}">
+							<th scope="row"><img src="{{ item.imagen.url }}" alt=""></th>
+							<td>{{ item.nombre }}</td>
+							<td>{{ item.peleas }}</td>
+							<td>
+								{% if item.estado == 'contendiente' %}Contendiente{% endif %}
+								{% if item.estado == 'retador' %}Retador{% endif %}
+								{% if item.estado == 'campeon' %}Campeón{% endif %}
+								{% if item.estado == 'leyenda' %}Leyenda{% endif %}
+							</td>
+							<td>{{ item.biografia }}</td>
+							<td>{{ item.pertenece }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</section> 
+	</div>
+
+
+	
+{% endblock contenido %}
+{% block js %}
+	<script type="text/javascript" src="{% static 'js/mixitup.js' %}"></script>
+	<script>
+		$(document).ready(function(){
+			/* INDICO QUE MENÚ ESTÁ ACTIVO */
+			$('[data-active="2"]').addClass('active');
+			mixitup($('.conte_conjunto'));
+
+			
+		});
+	</script>
+{% endblock js %}

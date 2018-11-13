@@ -1,0 +1,37 @@
+{% load static %}
+<div class="top-ban">
+	<div class="container">
+		<header>
+			<nav class="navbar navbar-expand-md navbar-light">
+				<figure class="logo">
+					<a href="http://{{ request.get_host }}">
+						<img src="{% static 'img/logo-ewwf.png' %}" alt="">
+					</a>
+				</figure>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav">
+					  <li class="nav-item" data-active="1">
+						<a class="nav-link" href="http://{{ request.get_host }}">Inicio</a>
+					  </li>
+					  <li class="nav-item" data-active="2">
+						<a class="nav-link" href="http://{{ request.get_host }}/luchadores">Miembros</a>
+					  </li>
+					  <li class="nav-item" data-active="3">
+						<a class="nav-link" href="#">Pay-per-view</a>
+					  </li>
+					  <li class="nav-item" data-active="4">
+					  	<a class="nav-link" href="http://{{ request.get_host }}/inscripcion">Inscribete</a>
+					  </li>
+					  <li class="nav-item" data-active="5">
+						<a class="nav-link" href="http://{{ request.get_host }}/cuentas">Login</a>
+					  </li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+	</div>
+</div>
